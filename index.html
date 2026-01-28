@@ -124,6 +124,44 @@
             50% { transform: translateY(-5px); }
         }
 
+        /* Social Links in Header */
+        .header-social {
+            display: flex;
+            gap: 15px;
+            margin-right: 30px;
+        }
+
+        .header-social a {
+            width: 36px;
+            height: 36px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .header-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .header-social .twitter:hover {
+            background: #1DA1F2;
+        }
+
+        .header-social .github:hover {
+            background: #333;
+        }
+
+        .header-social .linkedin:hover {
+            background: #0077B5;
+        }
+
         .nav-links {
             display: flex;
             gap: 30px;
@@ -232,6 +270,84 @@
         .stat-label {
             color: var(--gray);
             font-size: 0.9rem;
+        }
+
+        /* Hero Social Links */
+        .hero-social {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .hero-social h4 {
+            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-social-links a {
+            width: 44px;
+            height: 44px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .hero-social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-social-links .twitter:hover {
+            background: #1DA1F2;
+            color: white;
+        }
+
+        .hero-social-links .github:hover {
+            background: #333;
+            color: white;
+        }
+
+        .hero-social-links .linkedin:hover {
+            background: #0077B5;
+            color: white;
+        }
+
+        .hero-social-links a::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .hero-social-links a:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: -35px;
         }
 
         .hero-buttons {
@@ -549,11 +665,74 @@
             transform: translateY(-3px);
         }
 
+        .social-links .twitter:hover {
+            background: #1DA1F2;
+        }
+
+        .social-links .github:hover {
+            background: #333;
+        }
+
+        .social-links .linkedin:hover {
+            background: #0077B5;
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* About Me Section */
+        .about-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-social {
+            margin-top: 30px;
+        }
+
+        .about-social h4 {
+            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 1rem;
         }
 
         /* Animations */
@@ -583,6 +762,10 @@
                 display: none;
             }
             
+            .header-social {
+                display: none;
+            }
+            
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -594,6 +777,10 @@
             
             .newsletter-form {
                 flex-direction: column;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -701,10 +888,22 @@
                     AI Football Analyst
                 </a>
                 
+                <div class="header-social">
+                    <a href="https://twitter.com/AIFootballAlgo" class="twitter" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://github.com/avishkarmenge703-netizen" class="github" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/avishkar-menge" class="linkedin" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                
                 <div class="nav-links">
                     <a href="#predictions">Predictions</a>
                     <a href="#methodology">Methodology</a>
-                    <a href="#about">About</a>
+                    <a href="#about">About Me</a>
                     <a href="#contact">Contact</a>
                 </div>
                 
@@ -749,13 +948,75 @@
                     <a href="#predictions" class="btn btn-primary">
                         <i class="fas fa-chart-line"></i> View Predictions
                     </a>
-                    <a href="#methodology" class="btn btn-outline">
-                        <i class="fas fa-brain"></i> How It Works
+                    <a href="#about" class="btn btn-outline">
+                        <i class="fas fa-user"></i> About the Creator
                     </a>
+                </div>
+                
+                <!-- Hero Social Links -->
+                <div class="hero-social">
+                    <h4>Follow my journey:</h4>
+                    <div class="hero-social-links">
+                        <a href="https://twitter.com/AIFootballAlgo" class="twitter" target="_blank" data-tooltip="Follow on Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://github.com/avishkarmenge703-netizen" class="github" target="_blank" data-tooltip="View GitHub Projects">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/avishkar-menge" class="linkedin" target="_blank" data-tooltip="Connect on LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             
             <div class="hero-bg"></div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>About the Creator</h2>
+                    <p>
+                        Hi, I'm <strong>Avishkar Menge</strong>, a data science enthusiast and NFL fan 
+                        passionate about machine learning and sports analytics.
+                    </p>
+                    <p>
+                        I built this AI Football Analyst project to combine my interests in 
+                        programming, data analysis, and football. As a student learning machine 
+                        learning, this project represents months of work collecting data, 
+                        training models, and refining predictions.
+                    </p>
+                    <p>
+                        The goal is to create accurate, data-driven NFL predictions while 
+                        sharing my learning journey with the community. All code is open source 
+                        on GitHub for anyone interested in the technical implementation.
+                    </p>
+                    
+                    <div class="about-social">
+                        <h4>Connect with me:</h4>
+                        <div class="hero-social-links">
+                            <a href="https://twitter.com/AIFootballAlgo" class="twitter" target="_blank">
+                                <i class="fab fa-twitter"></i> @AIFootballAlgo
+                            </a>
+                            <a href="https://github.com/avishkarmenge703-netizen" class="github" target="_blank">
+                                <i class="fab fa-github"></i> avishkarmenge703-netizen
+                            </a>
+                            <a href="https://linkedin.com/in/avishkar-menge" class="linkedin" target="_blank">
+                                <i class="fab fa-linkedin"></i> Avishkar Menge
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&auto=format&fit=crop" 
+                         alt="Data Science Workspace">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -952,10 +1213,15 @@
                         Helping fantasy managers make data-driven decisions.
                     </p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-reddit"></i></a>
+                        <a href="https://twitter.com/AIFootballAlgo" class="twitter" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://github.com/avishkarmenge703-netizen" class="github" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/avishkar-menge" class="linkedin" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
                 
@@ -963,13 +1229,13 @@
                     <h4>Quick Links</h4>
                     <a href="#predictions">Week 12 Predictions</a>
                     <a href="#methodology">How It Works</a>
+                    <a href="#about">About Creator</a>
                     <a href="#">Model Accuracy</a>
-                    <a href="#">Historical Data</a>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Resources</h4>
-                    <a href="#">Fantasy Football Guide</a>
+                    <a href="https://github.com/avishkarmenge703-netizen/nfl-prediction-model" target="_blank">GitHub Code</a>
                     <a href="#">NFL Data Sources</a>
                     <a href="#">ML Learning Resources</a>
                     <a href="#">API Documentation</a>
@@ -977,17 +1243,20 @@
                 
                 <div class="footer-col">
                     <h4>Contact</h4>
-                    <a href="mailto:predictions@aifootballanalyst.com">predictions@aifootballanalyst.com</a>
-                    <a href="#">Report Issues</a>
-                    <a href="#">Feature Requests</a>
-                    <a href="#">Partnerships</a>
+                    <a href="mailto:avishkarmenge703@gmail.com">avishkarmenge703@gmail.com</a>
+                    <a href="https://github.com/avishkarmenge703-netizen" target="_blank">GitHub Issues</a>
+                    <a href="https://twitter.com/AIFootballAlgo" target="_blank">Twitter DM</a>
+                    <a href="https://linkedin.com/in/avishkar-menge" target="_blank">LinkedIn Message</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>© 2024 AI Football Analyst. All predictions for entertainment purposes only.</p>
                 <p style="margin-top: 10px; font-size: 0.9rem;">
-                    Model accuracy: 72% historical | Last updated: Today | Version 2.1.0
+                    Created by Avishkar Menge • 
+                    <a href="https://github.com/avishkarmenge703-netizen" style="color: rgba(255, 255, 255, 0.7);">GitHub</a> • 
+                    <a href="https://twitter.com/AIFootballAlgo" style="color: rgba(255, 255, 255, 0.7);">Twitter</a> • 
+                    <a href="https://linkedin.com/in/avishkar-menge" style="color: rgba(255, 255, 255, 0.7);">LinkedIn</a>
                 </p>
             </div>
         </div>
@@ -1205,6 +1474,30 @@
             });
         });
 
+        // Social link analytics tracking
+        document.querySelectorAll('.social-links a, .hero-social-links a, .header-social a').forEach(link => {
+            link.addEventListener('click', function() {
+                const platform = this.classList.contains('twitter') ? 'twitter' :
+                               this.classList.contains('github') ? 'github' :
+                               this.classList.contains('linkedin') ? 'linkedin' : 'social';
+                
+                console.log(`Social link clicked: ${platform}`);
+                
+                // Track in localStorage
+                let socialClicks = JSON.parse(localStorage.getItem('socialClicks') || '{}');
+                socialClicks[platform] = (socialClicks[platform] || 0) + 1;
+                localStorage.setItem('socialClicks', JSON.stringify(socialClicks));
+                
+                // Track in Google Analytics if available
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'social_click', {
+                        'event_category': 'engagement',
+                        'event_label': platform
+                    });
+                }
+            });
+        });
+
         // Page load animations
         document.addEventListener('DOMContentLoaded', function() {
             // Animate elements as they come into view
@@ -1223,6 +1516,10 @@
             });
             
             console.log('AI Football Analyst loaded successfully!');
+            console.log(`Creator: Avishkar Menge`);
+            console.log(`GitHub: https://github.com/avishkarmenge703-netizen`);
+            console.log(`Twitter: https://x.com/AvishkarMe42488`);
+            console.log(`LinkedIn: www.linkedin.com/in/avishkar-menge-880686311`);
             console.log(`Current subscribers: ${JSON.parse(localStorage.getItem('aiFootballSubscribers') || '[]').length}`);
         });
     </script>
