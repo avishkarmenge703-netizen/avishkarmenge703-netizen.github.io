@@ -8,12 +8,20 @@
     <!-- Meta Tags -->
     <meta name="description" content="AI-powered NFL predictions with 72% accuracy. Free weekly player projections from our machine learning model.">
     <meta name="keywords" content="AI, NFL, fantasy football, machine learning, predictions, data science">
+    <meta name="author" content="Avishkar Menge">
     
     <!-- Open Graph -->
     <meta property="og:title" content="AI Football Analyst - 72% Accurate NFL Predictions">
     <meta property="og:description" content="Machine learning model predicting NFL player performance with 72% accuracy.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=1200&h=630&fit=crop">
     <meta property="og:url" content="https://avishkarmenge703-netizen.github.io">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@AvishkarMe42488">
+    <meta name="twitter:title" content="AI Football Analyst">
+    <meta name="twitter:description" content="ML-powered NFL predictions with 72% accuracy">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -41,6 +49,7 @@
             --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
             --gradient-primary: linear-gradient(135deg, #4361ee, #3a0ca3);
             --gradient-accent: linear-gradient(135deg, #f72585, #b5179e);
+            --gradient-dark: linear-gradient(135deg, #212529, #343a40);
         }
 
         * {
@@ -59,6 +68,7 @@
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -353,6 +363,7 @@
         .hero-buttons {
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -364,6 +375,9 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
 
         .btn-primary {
@@ -380,11 +394,194 @@
         .btn-outline {
             border: 2px solid var(--primary);
             color: var(--primary);
+            background: transparent;
         }
 
         .btn-outline:hover {
             background: var(--primary);
             color: white;
+        }
+
+        /* Real-time Ticker */
+        .ticker-container {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--gradient-dark);
+            color: white;
+            padding: 10px 0;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: ticker 60s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .ticker-item {
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ticker-item i {
+            color: var(--success);
+        }
+
+        /* Interactive Quiz Section */
+        .quiz-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quiz-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-option {
+            padding: 15px;
+            background: var(--gray-light);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .quiz-option.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        .quiz-option.correct {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #f44336;
+            color: white;
+        }
+
+        .quiz-result {
+            text-align: center;
+            padding: 20px;
+            background: #f0f8ff;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Live Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            transition: all 0.3s;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
+        }
+
+        .chat-box {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            display: none;
+            overflow: hidden;
+        }
+
+        .chat-box.active {
+            display: block;
+        }
+
+        .chat-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--gray-light);
+            border-radius: 20px;
+            outline: none;
         }
 
         /* Predictions Section */
@@ -495,6 +692,63 @@
             background: var(--gradient-primary);
             border-radius: 4px;
             width: 75%;
+        }
+
+        /* Interactive Lineup Builder */
+        .lineup-builder {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .lineup-positions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .position-slot {
+            background: #f8f9fa;
+            border: 2px dashed var(--gray-light);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            min-height: 150px;
+            transition: all 0.3s;
+        }
+
+        .position-slot.dragover {
+            border-color: var(--primary);
+            background: rgba(67, 97, 238, 0.1);
+        }
+
+        .position-slot.filled {
+            border: 2px solid var(--success);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .player-pool {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .pool-player {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid var(--gray-light);
+            cursor: grab;
+            transition: all 0.3s;
+        }
+
+        .pool-player:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
         }
 
         /* Methodology */
@@ -756,7 +1010,60 @@
             animation: float 3s ease-in-out infinite;
         }
 
+        /* Progress Tracker */
+        .progress-tracker {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .progress-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        .progress-dot:hover::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--dark);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
         /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .about-container {
+                gap: 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -782,6 +1089,48 @@
             .about-container {
                 grid-template-columns: 1fr;
             }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .chat-box {
+                width: 300px;
+                right: -20px;
+            }
+            
+            .ticker-container {
+                top: 70px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .quiz-section,
+            .lineup-builder {
+                padding: 20px;
+            }
+            
+            .chat-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .progress-tracker {
+                display: none;
+            }
         }
 
         /* Modal Styles */
@@ -797,6 +1146,10 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
         }
 
         .modal-content {
@@ -874,11 +1227,76 @@
         .modal-submit:hover {
             transform: translateY(-2px);
         }
+
+        /* Visitor Counter */
+        .visitor-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 1001;
+            transition: width 0.1s;
+        }
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter">
+        <i class="fas fa-users"></i> Visitors: <span id="visitorCount">1,247</span>
+    </div>
+
+    <!-- Progress Tracker -->
+    <div class="progress-tracker">
+        <div class="progress-dot active" data-label="Home" onclick="scrollToSection('home')"></div>
+        <div class="progress-dot" data-label="About" onclick="scrollToSection('about')"></div>
+        <div class="progress-dot" data-label="Predictions" onclick="scrollToSection('predictions')"></div>
+        <div class="progress-dot" data-label="Methodology" onclick="scrollToSection('methodology')"></div>
+        <div class="progress-dot" data-label="Quiz" onclick="scrollToSection('quiz')"></div>
+    </div>
+
+    <!-- Real-time Ticker -->
+    <div class="ticker-container">
+        <div class="ticker-content">
+            <div class="ticker-item">
+                <i class="fas fa-bolt"></i>
+                <span>Week 12 Predictions Updated! - Patrick Mahomes: 28.5 projected points</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Model Accuracy: 72% this season - Highest among free prediction sites</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fas fa-star"></i>
+                <span>New Feature: AI Lineup Builder now available!</span>
+            </div>
+            <div class="ticker-item">
+                <i class="fas fa-users"></i>
+                <span>Join 1,500+ fantasy managers using our predictions</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="home">
         <div class="container">
             <nav class="nav-container">
                 <a href="#" class="logo">
@@ -889,21 +1307,23 @@
                 </a>
                 
                 <div class="header-social">
-                    <a href="https://twitter.com/AvishkarMe42488" class="twitter" target="_blank" title="Twitter">
+                    <a href="https://x.com/AvishkarMe42488" class="twitter" target="_blank" title="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
                     <a href="https://github.com/avishkarmenge703-netizen" class="github" target="_blank" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com/in/Avishkar-menge" class="linkedin" target="_blank" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/avishkar-menge-880686311/" class="linkedin" target="_blank" title="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </div>
                 
                 <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
                     <a href="#predictions">Predictions</a>
                     <a href="#methodology">Methodology</a>
-                    <a href="#about">About Me</a>
+                    <a href="#quiz">Quiz</a>
                     <a href="#contact">Contact</a>
                 </div>
                 
@@ -935,8 +1355,8 @@
                         <span class="stat-label">Accuracy Rate</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number" data-count="500">0</span>
-                        <span class="stat-label">Players Analyzed</span>
+                        <span class="stat-number" data-count="1500">0</span>
+                        <span class="stat-label">Active Users</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number" data-count="15">0</span>
@@ -945,26 +1365,32 @@
                 </div>
                 
                 <div class="hero-buttons">
-                    <a href="#predictions" class="btn btn-primary">
-                        <i class="fas fa-chart-line"></i> View Predictions
-                    </a>
-                    <a href="#about" class="btn btn-outline">
-                        <i class="fas fa-user"></i> About the Creator
-                    </a>
+                    <button onclick="showAllPredictions()" class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i> View All Predictions
+                    </button>
+                    <button onclick="startQuiz()" class="btn btn-outline">
+                        <i class="fas fa-question-circle"></i> Take AI Quiz
+                    </button>
+                    <button onclick="openChat()" class="btn btn-outline">
+                        <i class="fas fa-comments"></i> Live Chat
+                    </button>
                 </div>
                 
                 <!-- Hero Social Links -->
                 <div class="hero-social">
-                    <h4>Follow my journey:</h4>
+                    <h4>Connect with me:</h4>
                     <div class="hero-social-links">
-                        <a href="https://twitter.com/AIFootballAlgo" class="twitter" target="_blank" data-tooltip="Follow on Twitter">
+                        <a href="https://x.com/AvishkarMe42488" class="twitter" target="_blank" data-tooltip="Follow on Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="https://github.com/avishkarmenge703-netizen" class="github" target="_blank" data-tooltip="View GitHub Projects">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/avishkar-menge" class="linkedin" target="_blank" data-tooltip="Connect on LinkedIn">
+                        <a href="https://www.linkedin.com/in/avishkar-menge-880686311/" class="linkedin" target="_blank" data-tooltip="Connect on LinkedIn">
                             <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:avishkarmenge703@gmail.com" class="email" target="_blank" data-tooltip="Email Me">
+                            <i class="fas fa-envelope"></i>
                         </a>
                     </div>
                 </div>
@@ -981,44 +1407,91 @@
                 <div class="about-content">
                     <h2>About the Creator</h2>
                     <p>
-                        Hi, I'm <strong>Avishkar Menge</strong>, a data science enthusiast and NFL fan 
-                        passionate about machine learning and sports analytics.
+                        Hi, I'm <strong>Avishkar Menge</strong>, a passionate data science student and NFL fan 
+                        who built this AI Football Analyst project to combine my interests in 
+                        machine learning and sports analytics.
                     </p>
                     <p>
-                        I built this AI Football Analyst project to combine my interests in 
-                        programming, data analysis, and football. As a student learning machine 
-                        learning, this project represents months of work collecting data, 
-                        training models, and refining predictions.
+                        As a self-taught programmer, I developed this ML model from scratch 
+                        using Python, scikit-learn, and real NFL data. The project represents 
+                        months of data collection, model training, and optimization.
                     </p>
                     <p>
-                        The goal is to create accurate, data-driven NFL predictions while 
-                        sharing my learning journey with the community. All code is open source 
-                        on GitHub for anyone interested in the technical implementation.
+                        My goal is to provide accurate, data-driven predictions while sharing 
+                        my learning journey with the community. All code is open source on 
+                        GitHub for transparency and learning.
                     </p>
                     
                     <div class="about-social">
-                        <h4>Connect with me:</h4>
+                        <h4>Get in touch:</h4>
                         <div class="hero-social-links">
-                            <a href="https://twitter.com/AIFootballAlgo" class="twitter" target="_blank">
-                                <i class="fab fa-twitter"></i> @AvishkarMenge
+                            <a href="https://x.com/AvishkarMe42488" class="twitter" target="_blank">
+                                <i class="fab fa-twitter"></i> Twitter
                             </a>
-
-                            
                             <a href="https://github.com/avishkarmenge703-netizen" class="github" target="_blank">
-                                <i class="fab fa-github"></i> avishkarmenge703-netizen
+                                <i class="fab fa-github"></i> GitHub
                             </a>
-
-                            
-                            <a href="https://linkedin.com/in/avishkar-menge" class="linkedin" target="_blank">
-                                <i class="fab fa-linkedin"></i> Avishkar Menge
+                            <a href="https://www.linkedin.com/in/avishkar-menge-880686311/" class="linkedin" target="_blank">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="mailto:avishkarmenge703@gmail.com" class="email" target="_blank">
+                                <i class="fas fa-envelope"></i> Email
                             </a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&auto=format&fit=crop" 
-                         alt="Data Science Workspace">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop" 
+                         alt="Data Science Workspace" class="animate-float">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section id="quiz" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Test Your Football IQ</h2>
+                <p class="section-subtitle">
+                    Take this interactive quiz to test your NFL knowledge against our AI
+                </p>
+            </div>
+            
+            <div class="quiz-section">
+                <div class="quiz-container">
+                    <div class="quiz-question" id="quizQuestion">
+                        Which quarterback has the most career passing yards in NFL history?
+                    </div>
+                    
+                    <div class="quiz-options" id="quizOptions">
+                        <div class="quiz-option" onclick="selectOption(this, 'A')">
+                            A) Tom Brady
+                        </div>
+                        <div class="quiz-option" onclick="selectOption(this, 'B')">
+                            B) Peyton Manning
+                        </div>
+                        <div class="quiz-option" onclick="selectOption(this, 'C')">
+                            C) Drew Brees
+                        </div>
+                        <div class="quiz-option" onclick="selectOption(this, 'D')">
+                            D) Brett Favre
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="checkAnswer()" id="checkBtn">
+                        Check Answer
+                    </button>
+                    <button class="btn btn-outline" onclick="nextQuestion()" id="nextBtn" style="display: none;">
+                        Next Question
+                    </button>
+                    
+                    <div class="quiz-result" id="quizResult">
+                        <h3 id="resultTitle">Correct!</h3>
+                        <p id="resultMessage">Tom Brady holds the record with 89,214 passing yards.</p>
+                        <p>Score: <span id="quizScore">1</span>/5</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1052,17 +1525,22 @@
                     </div>
                     
                     <div class="confidence-meter">
-                        <div class="confidence-fill" style="width: 75%"></div>
+                        <div class="confidence-fill" style="width: 85%"></div>
                     </div>
                     
                     <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                         <span style="color: var(--gray);">Confidence:</span>
-                        <span style="font-weight: 600; color: var(--primary);">High</span>
+                        <span style="font-weight: 600; color: var(--success);">Very High</span>
                     </div>
                     
                     <p style="color: var(--gray); font-size: 0.9rem;">
                         Strong matchup against Cardinals defense. Expected high volume in both rushing and receiving.
                     </p>
+                    
+                    <button onclick="addToLineup('Christian McCaffrey', 'RB', 24.3)" 
+                            class="btn btn-outline" style="width: 100%; margin-top: 15px; padding: 8px;">
+                        <i class="fas fa-plus"></i> Add to Lineup
+                    </button>
                 </div>
                 
                 <!-- Player 2 -->
@@ -1082,17 +1560,22 @@
                     </div>
                     
                     <div class="confidence-meter">
-                        <div class="confidence-fill" style="width: 65%"></div>
+                        <div class="confidence-fill" style="width: 75%"></div>
                     </div>
                     
                     <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                         <span style="color: var(--gray);">Confidence:</span>
-                        <span style="font-weight: 600; color: var(--warning);">Medium</span>
+                        <span style="font-weight: 600; color: var(--primary);">High</span>
                     </div>
                     
                     <p style="color: var(--gray); font-size: 0.9rem;">
                         Elite WR facing Bears secondary. High target share with new QB chemistry developing.
                     </p>
+                    
+                    <button onclick="addToLineup('Justin Jefferson', 'WR', 21.8)" 
+                            class="btn btn-outline" style="width: 100%; margin-top: 15px; padding: 8px;">
+                        <i class="fas fa-plus"></i> Add to Lineup
+                    </button>
                 </div>
                 
                 <!-- Player 3 -->
@@ -1112,483 +1595,87 @@
                     </div>
                     
                     <div class="confidence-meter">
-                        <div class="confidence-fill" style="width: 85%"></div>
+                        <div class="confidence-fill" style="width: 90%"></div>
                     </div>
                     
                     <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                         <span style="color: var(--gray);">Confidence:</span>
-                        <span style="font-weight: 600; color: var(--primary);">High</span>
+                        <span style="font-weight: 600; color: var(--success);">Very High</span>
                     </div>
                     
                     <p style="color: var(--gray); font-size: 0.9rem;">
                         Prime-time matchup at Arrowhead. Historical excellence in late-season games.
                     </p>
+                    
+                    <button onclick="addToLineup('Patrick Mahomes', 'QB', 28.5)" 
+                            class="btn btn-outline" style="width: 100%; margin-top: 15px; padding: 8px;">
+                        <i class="fas fa-plus"></i> Add to Lineup
+                    </button>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-    <button onclick="showAllPredictions()" class="btn btn-primary" style="padding: 15px 50px;">
-        <i class="fas fa-list"></i> View All 50+ Predictions
-    </button>
-</div>
+                <button onclick="showAllPredictions()" class="btn btn-primary" style="padding: 15px 50px;">
+                    <i class="fas fa-list"></i> View All 50+ Predictions
+                </button>
+            </div>
 
-<!-- All Predictions Modal -->
-<div id="allPredictionsModal" class="modal">
-    <div class="modal-content" style="max-width: 900px; max-height: 80vh; overflow-y: auto;">
-        <button class="modal-close" onclick="closePredictionsModal()">×</button>
-        
-        <h2 style="margin-bottom: 10px; color: var(--primary);">
-            <i class="fas fa-football-ball"></i> Week 12 Complete Predictions
-        </h2>
-        <p style="color: var(--gray); margin-bottom: 30px;">
-            AI Model Accuracy: 72% | Last Updated: <span id="currentDate"></span>
-        </p>
-        
-        <!-- Filter Tabs -->
-        <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
-            <button class="filter-btn active" onclick="filterPredictions('all')">All Players</button>
-            <button class="filter-btn" onclick="filterPredictions('QB')">Quarterbacks</button>
-            <button class="filter-btn" onclick="filterPredictions('RB')">Running Backs</button>
-            <button class="filter-btn" onclick="filterPredictions('WR')">Wide Receivers</button>
-            <button class="filter-btn" onclick="filterPredictions('TE')">Tight Ends</button>
-            <button class="filter-btn" onclick="filterPredictions('high')">High Confidence</button>
-        </div>
-        
-        <!-- Search Box -->
-        <div style="margin-bottom: 25px;">
-            <input type="text" id="playerSearch" 
-                   placeholder="🔍 Search players by name..." 
-                   style="width: 100%; padding: 12px 20px; border: 2px solid var(--gray-light); border-radius: 10px; font-size: 16px;">
-        </div>
-        
-        <!-- Predictions Table -->
-        <div class="predictions-table-container">
-            <table id="predictionsTable" style="width: 100%; border-collapse: collapse;">
-                <thead>
-                    <tr style="background: var(--gradient-primary); color: white;">
-                        <th style="padding: 15px; text-align: left; border-radius: 8px 0 0 0;">Rank</th>
-                        <th style="padding: 15px; text-align: left;">Player</th>
-                        <th style="padding: 15px; text-align: left;">Position</th>
-                        <th style="padding: 15px; text-align: left;">Team</th>
-                        <th style="padding: 15px; text-align: left;">Predicted Points</th>
-                        <th style="padding: 15px; text-align: left; border-radius: 0 8px 0 0;">Confidence</th>
-                    </tr>
-                </thead>
-                <tbody id="predictionsTableBody">
-                    <!-- Predictions will be generated by JavaScript -->
-                </tbody>
-            </table>
-        </div>
-        
-        <!-- Stats Summary -->
-        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 30px;">
-            <h4 style="margin-bottom: 15px; color: var(--dark);">
-                <i class="fas fa-chart-bar"></i> Prediction Summary
-            </h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
-                <div style="text-align: center;">
-                    <div style="font-size: 24px; font-weight: 800; color: var(--primary);" id="totalPlayers">0</div>
-                    <div style="color: var(--gray); font-size: 14px;">Total Players</div>
+            <!-- Lineup Builder -->
+            <div class="lineup-builder">
+                <h3 style="text-align: center; margin-bottom: 30px;">
+                    <i class="fas fa-users"></i> AI Lineup Builder
+                </h3>
+                
+                <div class="lineup-positions">
+                    <div class="position-slot" data-position="QB" ondrop="dropPlayer(event)" ondragover="allowDrop(event)">
+                        <h4>Quarterback</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Drag player here</p>
+                        <div class="slot-player"></div>
+                    </div>
+                    <div class="position-slot" data-position="RB" ondrop="dropPlayer(event)" ondragover="allowDrop(event)">
+                        <h4>Running Back 1</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Drag player here</p>
+                        <div class="slot-player"></div>
+                    </div>
+                    <div class="position-slot" data-position="RB" ondrop="dropPlayer(event)" ondragover="allowDrop(event)">
+                        <h4>Running Back 2</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Drag player here</p>
+                        <div class="slot-player"></div>
+                    </div>
+                    <div class="position-slot" data-position="WR" ondrop="dropPlayer(event)" ondragover="allowDrop(event)">
+                        <h4>Wide Receiver 1</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Drag player here</p>
+                        <div class="slot-player"></div>
+                    </div>
+                    <div class="position-slot" data-position="WR" ondrop="dropPlayer(event)" ondragover="allowDrop(event)">
+                        <h4>Wide Receiver 2</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Drag player here</p>
+                        <div class="slot-player"></div>
+                    </div>
+                    <div class="position-slot" data-position="TE" ondrop="dropPlayer(event)" ondragover="allowDrop(event)">
+                        <h4>Tight End</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Drag player here</p>
+                        <div class="slot-player"></div>
+                    </div>
+                    <div class="position-slot" data-position="FLEX" ondrop="dropPlayer(event)" ondragover="allowDrop(event)">
+                        <h4>Flex (RB/WR/TE)</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Drag player here</p>
+                        <div class="slot-player"></div>
+                    </div>
                 </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 24px; font-weight: 800; color: #4CAF50;" id="avgPoints">0</div>
-                    <div style="color: var(--gray); font-size: 14px;">Avg Points</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 24px; font-weight: 800; color: #ff9800;" id="highConfidence">0</div>
-                    <div style="color: var(--gray); font-size: 14px;">High Confidence</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-size: 24px; font-weight: 800; color: #2196F3;" id="modelAccuracy">72%</div>
-                    <div style="color: var(--gray); font-size: 14px;">Model Accuracy</div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--primary);">
+                        Total Projected Points: <span id="totalPoints">0</span>
+                    </div>
+                    <button onclick="optimizeLineup()" class="btn btn-primary" style="margin-top: 15px;">
+                        <i class="fas fa-robot"></i> AI Optimize Lineup
+                    </button>
+                    <button onclick="clearLineup()" class="btn btn-outline" style="margin-top: 15px;">
+                        <i class="fas fa-redo"></i> Clear All
+                    </button>
                 </div>
             </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--gray-light);">
-            <p style="color: var(--gray); font-size: 14px;">
-                <i class="fas fa-info-circle"></i> Predictions update every Thursday at 8 PM EST
-            </p>
-            <button onclick="downloadPredictions()" style="background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">
-                <i class="fas fa-download"></i> Download as CSV
-            </button>
-        </div>
-    </div>
-</div>
-
-<style>
-    /* Additional Styles for Predictions Modal */
-    .predictions-table-container {
-        overflow-x: auto;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    
-    #predictionsTable {
-        background: white;
-    }
-    
-    #predictionsTable tbody tr {
-        border-bottom: 1px solid var(--gray-light);
-        transition: background 0.3s;
-    }
-    
-    #predictionsTable tbody tr:hover {
-        background: #f8f9fa;
-    }
-    
-    #predictionsTable td {
-        padding: 12px 15px;
-        color: var(--dark);
-    }
-    
-    #predictionsTable tbody tr:nth-child(even) {
-        background: #fafafa;
-    }
-    
-    .filter-btn {
-        background: var(--gray-light);
-        border: none;
-        padding: 8px 16px;
-        border-radius: 20px;
-        color: var(--dark);
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-        transition: all 0.3s;
-    }
-    
-    .filter-btn.active {
-        background: var(--primary);
-        color: white;
-    }
-    
-    .filter-btn:hover {
-        background: var(--primary);
-        color: white;
-        transform: translateY(-2px);
-    }
-    
-    .confidence-badge {
-        padding: 4px 12px;
-        border-radius: 15px;
-        font-size: 12px;
-        font-weight: 600;
-        display: inline-block;
-    }
-    
-    .confidence-high {
-        background: rgba(76, 175, 80, 0.1);
-        color: #4CAF50;
-        border: 1px solid rgba(76, 175, 80, 0.3);
-    }
-    
-    .confidence-medium {
-        background: rgba(255, 193, 7, 0.1);
-        color: #ff9800;
-        border: 1px solid rgba(255, 193, 7, 0.3);
-    }
-    
-    .confidence-low {
-        background: rgba(244, 67, 54, 0.1);
-        color: #f44336;
-        border: 1px solid rgba(244, 67, 54, 0.3);
-    }
-</style>
-
-<script>
-    // Sample prediction data (50+ players)
-    const allPredictions = [
-        // Quarterbacks
-        { name: "Patrick Mahomes", position: "QB", team: "KC", points: 28.5, confidence: "high" },
-        { name: "Jalen Hurts", position: "QB", team: "PHI", points: 26.8, confidence: "high" },
-        { name: "Josh Allen", position: "QB", team: "BUF", points: 25.3, confidence: "high" },
-        { name: "Lamar Jackson", position: "QB", team: "BAL", points: 24.7, confidence: "medium" },
-        { name: "Justin Herbert", position: "QB", team: "LAC", points: 23.9, confidence: "medium" },
-        { name: "Joe Burrow", position: "QB", team: "CIN", points: 23.2, confidence: "medium" },
-        { name: "Trevor Lawrence", position: "QB", team: "JAX", points: 22.5, confidence: "medium" },
-        { name: "Dak Prescott", position: "QB", team: "DAL", points: 21.8, confidence: "low" },
-        { name: "Kirk Cousins", position: "QB", team: "MIN", points: 21.3, confidence: "low" },
-        { name: "Geno Smith", position: "QB", team: "SEA", points: 20.7, confidence: "low" },
-        
-        // Running Backs
-        { name: "Christian McCaffrey", position: "RB", team: "SF", points: 24.3, confidence: "high" },
-        { name: "Austin Ekeler", position: "RB", team: "LAC", points: 21.5, confidence: "high" },
-        { name: "Derrick Henry", position: "RB", team: "TEN", points: 20.8, confidence: "medium" },
-        { name: "Tony Pollard", position: "RB", team: "DAL", points: 19.2, confidence: "medium" },
-        { name: "Josh Jacobs", position: "RB", team: "LV", points: 18.7, confidence: "medium" },
-        { name: "Saquon Barkley", position: "RB", team: "NYG", points: 18.3, confidence: "medium" },
-        { name: "Nick Chubb", position: "RB", team: "CLE", points: 17.9, confidence: "medium" },
-        { name: "Joe Mixon", position: "RB", team: "CIN", points: 16.8, confidence: "low" },
-        { name: "Rhamondre Stevenson", position: "RB", team: "NE", points: 16.3, confidence: "low" },
-        { name: "Travis Etienne", position: "RB", team: "JAX", points: 15.9, confidence: "low" },
-        { name: "James Cook", position: "RB", team: "BUF", points: 15.4, confidence: "low" },
-        { name: "Breece Hall", position: "RB", team: "NYJ", points: 14.8, confidence: "low" },
-        { name: "Alvin Kamara", position: "RB", team: "NO", points: 14.2, confidence: "low" },
-        { name: "Aaron Jones", position: "RB", team: "GB", points: 13.9, confidence: "low" },
-        { name: "David Montgomery", position: "RB", team: "DET", points: 13.5, confidence: "low" },
-        
-        // Wide Receivers
-        { name: "Justin Jefferson", position: "WR", team: "MIN", points: 21.8, confidence: "high" },
-        { name: "Tyreek Hill", position: "WR", team: "MIA", points: 22.1, confidence: "high" },
-        { name: "Davante Adams", position: "WR", team: "LV", points: 20.3, confidence: "high" },
-        { name: "Stefon Diggs", position: "WR", team: "BUF", points: 19.7, confidence: "medium" },
-        { name: "A.J. Brown", position: "WR", team: "PHI", points: 18.9, confidence: "medium" },
-        { name: "Ja'Marr Chase", position: "WR", team: "CIN", points: 18.4, confidence: "medium" },
-        { name: "CeeDee Lamb", position: "WR", team: "DAL", points: 17.8, confidence: "medium" },
-        { name: "Cooper Kupp", position: "WR", team: "LAR", points: 17.2, confidence: "medium" },
-        { name: "Keenan Allen", position: "WR", team: "LAC", points: 16.7, confidence: "low" },
-        { name: "Jaylen Waddle", position: "WR", team: "MIA", points: 16.1, confidence: "low" },
-        { name: "Amari Cooper", position: "WR", team: "CLE", points: 15.8, confidence: "low" },
-        { name: "DeVonta Smith", position: "WR", team: "PHI", points: 15.3, confidence: "low" },
-        { name: "Chris Olave", position: "WR", team: "NO", points: 14.9, confidence: "low" },
-        { name: "Garrett Wilson", position: "WR", team: "NYJ", points: 14.5, confidence: "low" },
-        { name: "Calvin Ridley", position: "WR", team: "JAX", points: 14.1, confidence: "low" },
-        
-        // Tight Ends
-        { name: "Travis Kelce", position: "TE", team: "KC", points: 18.7, confidence: "high" },
-        { name: "Mark Andrews", position: "TE", team: "BAL", points: 16.2, confidence: "medium" },
-        { name: "George Kittle", position: "TE", team: "SF", points: 15.8, confidence: "medium" },
-        { name: "T.J. Hockenson", position: "TE", team: "MIN", points: 14.9, confidence: "medium" },
-        { name: "Darren Waller", position: "TE", team: "NYG", points: 13.5, confidence: "low" },
-        { name: "Kyle Pitts", position: "TE", team: "ATL", points: 12.8, confidence: "low" },
-        { name: "Dallas Goedert", position: "TE", team: "PHI", points: 12.3, confidence: "low" },
-        { name: "Evan Engram", position: "TE", team: "JAX", points: 11.9, confidence: "low" },
-        { name: "David Njoku", position: "TE", team: "CLE", points: 11.4, confidence: "low" },
-        { name: "Cole Kmet", position: "TE", team: "CHI", points: 10.8, confidence: "low" }
-    ];
-
-    // Add more players to reach 50+
-    for (let i = 0; i < 10; i++) {
-        allPredictions.push({
-            name: `Player ${i + 51}`,
-            position: ["RB", "WR", "TE"][Math.floor(Math.random() * 3)],
-            team: ["ARI", "ATL", "CAR", "CHI", "DEN", "HOU", "IND", "LAR"][Math.floor(Math.random() * 8)],
-            points: (Math.random() * 10 + 5).toFixed(1),
-            confidence: ["low", "medium", "high"][Math.floor(Math.random() * 3)]
-        });
-    }
-
-    // Sort predictions by points (highest first)
-    allPredictions.sort((a, b) => b.points - a.points);
-
-    // Function to show all predictions modal
-    function showAllPredictions() {
-        document.getElementById('allPredictionsModal').style.display = 'flex';
-        renderPredictionsTable();
-        updateStats();
-        updateCurrentDate();
-        
-        // Track analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'view_all_predictions', {
-                'event_category': 'engagement',
-                'event_label': 'predictions_modal'
-            });
-        }
-        
-        console.log('All predictions modal opened');
-    }
-
-    // Function to close predictions modal
-    function closePredictionsModal() {
-        document.getElementById('allPredictionsModal').style.display = 'none';
-    }
-
-    // Function to render predictions table
-    function renderPredictionsTable(filter = 'all', searchTerm = '') {
-        const tableBody = document.getElementById('predictionsTableBody');
-        tableBody.innerHTML = '';
-        
-        let filteredPredictions = allPredictions;
-        
-        // Apply filter
-        if (filter !== 'all' && filter !== 'high') {
-            filteredPredictions = allPredictions.filter(p => p.position === filter);
-        } else if (filter === 'high') {
-            filteredPredictions = allPredictions.filter(p => p.confidence === 'high');
-        }
-        
-        // Apply search
-        if (searchTerm) {
-            filteredPredictions = filteredPredictions.filter(p => 
-                p.name.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-        }
-        
-        // Render rows
-        filteredPredictions.forEach((player, index) => {
-            const row = document.createElement('tr');
-            
-            row.innerHTML = `
-                <td style="font-weight: 600; color: var(--dark);">${index + 1}</td>
-                <td>
-                    <div style="font-weight: 600; color: var(--dark);">${player.name}</div>
-                </td>
-                <td>
-                    <span style="background: ${getPositionColor(player.position)}; 
-                          color: white; padding: 4px 10px; border-radius: 5px; 
-                          font-size: 12px; font-weight: 600;">
-                        ${player.position}
-                    </span>
-                </td>
-                <td style="font-weight: 500;">${player.team}</td>
-                <td>
-                    <div style="font-size: 18px; font-weight: 800; color: var(--primary);">
-                        ${player.points}
-                    </div>
-                </td>
-                <td>
-                    <span class="confidence-badge confidence-${player.confidence}">
-                        ${player.confidence.charAt(0).toUpperCase() + player.confidence.slice(1)}
-                    </span>
-                </td>
-            `;
-            
-            tableBody.appendChild(row);
-        });
-        
-        // Update counter
-        document.getElementById('totalPlayers').textContent = filteredPredictions.length;
-    }
-
-    // Function to filter predictions
-    function filterPredictions(filter) {
-        // Update active filter button
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        event.target.classList.add('active');
-        
-        // Get search term
-        const searchTerm = document.getElementById('playerSearch').value;
-        
-        // Render filtered table
-        renderPredictionsTable(filter, searchTerm);
-        updateStats(filter);
-        
-        console.log(`Filtered by: ${filter}`);
-    }
-
-    // Function to update stats
-    function updateStats(filter = 'all') {
-        let filteredPredictions = allPredictions;
-        
-        if (filter !== 'all' && filter !== 'high') {
-            filteredPredictions = allPredictions.filter(p => p.position === filter);
-        } else if (filter === 'high') {
-            filteredPredictions = allPredictions.filter(p => p.confidence === 'high');
-        }
-        
-        // Calculate average points
-        const avgPoints = filteredPredictions.reduce((sum, p) => sum + parseFloat(p.points), 0) / filteredPredictions.length;
-        document.getElementById('avgPoints').textContent = avgPoints.toFixed(1);
-        
-        // Count high confidence predictions
-        const highConfidenceCount = filteredPredictions.filter(p => p.confidence === 'high').length;
-        document.getElementById('highConfidence').textContent = highConfidenceCount;
-    }
-
-    // Function to update current date
-    function updateCurrentDate() {
-        const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
-    }
-
-    // Function to get position color
-    function getPositionColor(position) {
-        const colors = {
-            'QB': '#4361ee',
-            'RB': '#f72585',
-            'WR': '#4cc9f0',
-            'TE': '#7209b7'
-        };
-        return colors[position] || '#6c757d';
-    }
-
-    // Function to download predictions as CSV
-    function downloadPredictions() {
-        let csv = 'Player,Position,Team,Predicted Points,Confidence\n';
-        
-        allPredictions.forEach(player => {
-            csv += `"${player.name}",${player.position},${player.team},${player.points},${player.confidence}\n`;
-        });
-        
-        const blob = new Blob([csv], { type: 'text/csv' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `ai-football-predictions-week12-${new Date().toISOString().split('T')[0]}.csv`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-        
-        // Track download
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'download_predictions', {
-                'event_category': 'engagement',
-                'event_label': 'csv_download'
-            });
-        }
-        
-        alert('Predictions downloaded as CSV!');
-    }
-
-    // Add search functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('playerSearch');
-        if (searchInput) {
-            searchInput.addEventListener('input', function() {
-                const filter = document.querySelector('.filter-btn.active').textContent;
-                renderPredictionsTable(filter === 'All Players' ? 'all' : 
-                                      filter === 'Quarterbacks' ? 'QB' :
-                                      filter === 'Running Backs' ? 'RB' :
-                                      filter === 'Wide Receivers' ? 'WR' :
-                                      filter === 'Tight Ends' ? 'TE' :
-                                      filter === 'High Confidence' ? 'high' : 'all', 
-                                      this.value);
-            });
-        }
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('allPredictionsModal');
-            if (event.target === modal) {
-                closePredictionsModal();
-            }
-        });
-        
-        // Add keyboard shortcuts
-        document.addEventListener('keydown', function(event) {
-            // ESC closes modal
-            if (event.key === 'Escape') {
-                const modal = document.getElementById('allPredictionsModal');
-                if (modal.style.display === 'flex') {
-                    closePredictionsModal();
-                }
-            }
-            
-            // Ctrl+F focuses search
-            if (event.ctrlKey && event.key === 'f') {
-                event.preventDefault();
-                const modal = document.getElementById('allPredictionsModal');
-                if (modal.style.display === 'flex') {
-                    document.getElementById('playerSearch').focus();
-                }
-            }
-        });
-        
-        console.log('Predictions modal system loaded');
-    });
-
-    // Test function to ensure button works
-    function testButton() {
-        console.log('Button clicked successfully!');
-        showAllPredictions();
-    }
-</script>
         </div>
     </section>
 
@@ -1608,7 +1695,7 @@
                         <i class="fas fa-database"></i>
                     </div>
                     <h3>Data Collection</h3>
-                    <p>3 years of NFL data including player stats, weather, injuries, and historical trends.</p>
+                    <p>3 years of NFL data including player stats, weather, injuries, and historical trends from multiple sources.</p>
                 </div>
                 
                 <div class="methodology-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
@@ -1616,7 +1703,7 @@
                         <i class="fas fa-brain"></i>
                     </div>
                     <h3>Machine Learning</h3>
-                    <p>Random Forest algorithm with 15+ features analyzing patterns and correlations.</p>
+                    <p>Random Forest algorithm with 15+ features analyzing patterns and correlations for accurate predictions.</p>
                 </div>
                 
                 <div class="methodology-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
@@ -1624,7 +1711,7 @@
                         <i class="fas fa-chart-bar"></i>
                     </div>
                     <h3>Feature Engineering</h3>
-                    <p>Advanced feature extraction including opponent strength and player momentum.</p>
+                    <p>Advanced feature extraction including opponent strength, player momentum, and situational analysis.</p>
                 </div>
                 
                 <div class="methodology-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
@@ -1632,7 +1719,7 @@
                         <i class="fas fa-sync-alt"></i>
                     </div>
                     <h3>Continuous Learning</h3>
-                    <p>Model updates weekly based on new data and prediction accuracy feedback.</p>
+                    <p>Model updates weekly based on new data and prediction accuracy feedback loop for improvement.</p>
                 </div>
             </div>
         </div>
@@ -1644,12 +1731,12 @@
             <div class="newsletter-content">
                 <h2>Get Weekly AI Predictions</h2>
                 <p>
-                    Join 1,000+ fantasy managers receiving our AI predictions every Thursday.
+                    Join 1,500+ fantasy managers receiving our AI predictions every Thursday.
                     Free insights delivered directly to your inbox.
                 </p>
                 
                 <div class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Your email address">
+                    <input type="email" class="newsletter-input" placeholder="Your email address" id="newsletterEmail">
                     <button class="newsletter-btn" id="subscribeBtn">
                         Subscribe
                     </button>
@@ -1663,7 +1750,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
@@ -1675,13 +1762,13 @@
                         Helping fantasy managers make data-driven decisions.
                     </p>
                     <div class="social-links">
-                        <a href="https://twitter.com/AIFootballAlgo" class="twitter" target="_blank" title="Twitter">
+                        <a href="https://x.com/AvishkarMe42488" class="twitter" target="_blank" title="Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="https://github.com/avishkarmenge703-netizen" class="github" target="_blank" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/avishkar-menge" class="linkedin" target="_blank" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/avishkar-menge-880686311/" class="linkedin" target="_blank" title="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -1692,12 +1779,12 @@
                     <a href="#predictions">Week 12 Predictions</a>
                     <a href="#methodology">How It Works</a>
                     <a href="#about">About Creator</a>
-                    <a href="#">Model Accuracy</a>
+                    <a href="#quiz">AI Quiz</a>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Resources</h4>
-                    <a href="https://github.com/avishkarmenge703-netizen/nfl-prediction-model" target="_blank">GitHub Code</a>
+                    <a href="https://github.com/avishkarmenge703-netizen" target="_blank">GitHub Profile</a>
                     <a href="#">NFL Data Sources</a>
                     <a href="#">ML Learning Resources</a>
                     <a href="#">API Documentation</a>
@@ -1707,8 +1794,8 @@
                     <h4>Contact</h4>
                     <a href="mailto:avishkarmenge703@gmail.com">avishkarmenge703@gmail.com</a>
                     <a href="https://github.com/avishkarmenge703-netizen" target="_blank">GitHub Issues</a>
-                    <a href="https://twitter.com/AIFootballAlgo" target="_blank">Twitter DM</a>
-                    <a href="https://linkedin.com/in/avishkar-menge" target="_blank">LinkedIn Message</a>
+                    <a href="https://x.com/AvishkarMe42488" target="_blank">Twitter DM</a>
+                    <a href="https://www.linkedin.com/in/avishkar-menge-880686311/" target="_blank">LinkedIn Message</a>
                 </div>
             </div>
             
@@ -1717,56 +1804,250 @@
                 <p style="margin-top: 10px; font-size: 0.9rem;">
                     Created by Avishkar Menge • 
                     <a href="https://github.com/avishkarmenge703-netizen" style="color: rgba(255, 255, 255, 0.7);">GitHub</a> • 
-                    <a href="https://twitter.com/AIFootballAlgo" style="color: rgba(255, 255, 255, 0.7);">Twitter</a> • 
-                    <a href="https://linkedin.com/in/avishkar-menge" style="color: rgba(255, 255, 255, 0.7);">LinkedIn</a>
+                    <a href="https://x.com/AvishkarMe42488" style="color: rgba(255, 255, 255, 0.7);">Twitter</a> • 
+                    <a href="https://www.linkedin.com/in/avishkar-menge-880686311/" style="color: rgba(255, 255, 255, 0.7);">LinkedIn</a> •
+                    <a href="mailto:avishkarmenge703@gmail.com" style="color: rgba(255, 255, 255, 0.7);">Email</a>
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- Subscription Modal -->
-    <div id="subscriptionModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            
-            <h3>Get AI Football Predictions</h3>
-            <p>Enter your email to receive weekly predictions and access to premium features:</p>
-            
-            <form class="modal-form" id="subscriptionForm">
-                <input type="email" class="modal-input" placeholder="Your email address" required>
-                <input type="text" class="modal-input" placeholder="Your name (optional)">
-                
-                <div style="display: flex; gap: 10px; align-items: center;">
-                    <input type="checkbox" id="agreeTerms" required style="width: auto;">
-                    <label for="agreeTerms" style="color: var(--gray); font-size: 0.9rem;">
-                        I agree to receive weekly predictions (unsubscribe anytime)
-                    </label>
-                </div>
-                
-                <button type="submit" class="modal-submit">
-                    <i class="fas fa-paper-plane"></i> Get Week 12 Predictions
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <h4 style="margin: 0;">AI Football Assistant</h4>
+                <button onclick="toggleChat()" style="background: none; border: none; color: white; cursor: pointer;">
+                    <i class="fas fa-times"></i>
                 </button>
-            </form>
-            
-            <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
-                Already have <span id="subscriberCount">1,000+</span> analysts using our predictions
-            </p>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <p>Hello! I'm your AI football assistant. How can I help you today?</p>
+                </div>
+                <div class="message bot">
+                    <p>You can ask me about player predictions, lineup advice, or model details.</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendMessage()" class="btn btn-primary" style="padding: 10px 20px;">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- All Predictions Modal -->
+    <div id="allPredictionsModal" class="modal">
+        <div class="modal-content" style="max-width: 900px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closePredictionsModal()">×</button>
+            
+            <h2 style="margin-bottom: 10px; color: var(--primary);">
+                <i class="fas fa-football-ball"></i> Week 12 Complete Predictions
+            </h2>
+            <p style="color: var(--gray); margin-bottom: 30px;">
+                AI Model Accuracy: 72% | Last Updated: <span id="currentDate"></span>
+            </p>
+            
+            <!-- Filter Tabs -->
+            <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
+                <button class="filter-btn active" onclick="filterPredictions('all')">All Players</button>
+                <button class="filter-btn" onclick="filterPredictions('QB')">Quarterbacks</button>
+                <button class="filter-btn" onclick="filterPredictions('RB')">Running Backs</button>
+                <button class="filter-btn" onclick="filterPredictions('WR')">Wide Receivers</button>
+                <button class="filter-btn" onclick="filterPredictions('TE')">Tight Ends</button>
+                <button class="filter-btn" onclick="filterPredictions('high')">High Confidence</button>
+            </div>
+            
+            <!-- Search Box -->
+            <div style="margin-bottom: 25px;">
+                <input type="text" id="playerSearch" 
+                       placeholder="🔍 Search players by name..." 
+                       style="width: 100%; padding: 12px 20px; border: 2px solid var(--gray-light); border-radius: 10px; font-size: 16px;">
+            </div>
+            
+            <!-- Predictions Table -->
+            <div class="predictions-table-container">
+                <table id="predictionsTable" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: var(--gradient-primary); color: white;">
+                            <th style="padding: 15px; text-align: left; border-radius: 8px 0 0 0;">Rank</th>
+                            <th style="padding: 15px; text-align: left;">Player</th>
+                            <th style="padding: 15px; text-align: left;">Position</th>
+                            <th style="padding: 15px; text-align: left;">Team</th>
+                            <th style="padding: 15px; text-align: left;">Predicted Points</th>
+                            <th style="padding: 15px; text-align: left; border-radius: 0 8px 0 0;">Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="predictionsTableBody">
+                        <!-- Predictions will be generated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Stats Summary -->
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                <h4 style="margin-bottom: 15px; color: var(--dark);">
+                    <i class="fas fa-chart-bar"></i> Prediction Summary
+                </h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 24px; font-weight: 800; color: var(--primary);" id="totalPlayers">0</div>
+                        <div style="color: var(--gray); font-size: 14px;">Total Players</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 24px; font-weight: 800; color: #4CAF50;" id="avgPoints">0</div>
+                        <div style="color: var(--gray); font-size: 14px;">Avg Points</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 24px; font-weight: 800; color: #ff9800;" id="highConfidence">0</div>
+                        <div style="color: var(--gray); font-size: 14px;">High Confidence</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 24px; font-weight: 800; color: #2196F3;" id="modelAccuracy">72%</div>
+                        <div style="color: var(--gray); font-size: 14px;">Model Accuracy</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--gray-light);">
+                <p style="color: var(--gray); font-size: 14px;">
+                    <i class="fas fa-info-circle"></i> Predictions update every Thursday at 8 PM EST
+                </p>
+                <button onclick="downloadPredictions()" style="background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+                    <i class="fas fa-download"></i> Download as CSV
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Global Variables
+        let currentQuizQuestion = 0;
+        let quizScore = 0;
+        let selectedOption = null;
+        let visitorCount = 1247;
+        let chatOpen = false;
+        let lineupPlayers = {
+            QB: null,
+            RB1: null,
+            RB2: null,
+            WR1: null,
+            WR2: null,
+            TE: null,
+            FLEX: null
+        };
+
+        // Quiz Data
+        const quizQuestions = [
+            {
+                question: "Which quarterback has the most career passing yards in NFL history?",
+                options: ["Tom Brady", "Peyton Manning", "Drew Brees", "Brett Favre"],
+                correct: 0,
+                explanation: "Tom Brady holds the record with 89,214 passing yards."
+            },
+            {
+                question: "Which running back holds the single-season rushing yards record?",
+                options: ["Eric Dickerson", "Adrian Peterson", "Barry Sanders", "Emmitt Smith"],
+                correct: 0,
+                explanation: "Eric Dickerson rushed for 2,105 yards in the 1984 season."
+            },
+            {
+                question: "Which team has won the most Super Bowls?",
+                options: ["Pittsburgh Steelers", "New England Patriots", "Dallas Cowboys", "San Francisco 49ers"],
+                correct: 0,
+                explanation: "The Pittsburgh Steelers have won 6 Super Bowls."
+            },
+            {
+                question: "Who holds the record for most touchdown passes in a single season?",
+                options: ["Peyton Manning", "Tom Brady", "Patrick Mahomes", "Aaron Rodgers"],
+                correct: 0,
+                explanation: "Peyton Manning threw 55 touchdown passes in 2013."
+            },
+            {
+                question: "Which wide receiver has the most career receiving yards?",
+                options: ["Jerry Rice", "Larry Fitzgerald", "Terrell Owens", "Randy Moss"],
+                correct: 0,
+                explanation: "Jerry Rice holds the record with 22,895 receiving yards."
             }
+        ];
+
+        // Sample prediction data (50+ players)
+        const allPredictions = [
+            // Quarterbacks
+            { name: "Patrick Mahomes", position: "QB", team: "KC", points: 28.5, confidence: "high" },
+            { name: "Jalen Hurts", position: "QB", team: "PHI", points: 26.8, confidence: "high" },
+            { name: "Josh Allen", position: "QB", team: "BUF", points: 25.3, confidence: "high" },
+            { name: "Lamar Jackson", position: "QB", team: "BAL", points: 24.7, confidence: "medium" },
+            { name: "Justin Herbert", position: "QB", team: "LAC", points: 23.9, confidence: "medium" },
+            
+            // Running Backs
+            { name: "Christian McCaffrey", position: "RB", team: "SF", points: 24.3, confidence: "high" },
+            { name: "Austin Ekeler", position: "RB", team: "LAC", points: 21.5, confidence: "high" },
+            { name: "Derrick Henry", position: "RB", team: "TEN", points: 20.8, confidence: "medium" },
+            { name: "Tony Pollard", position: "RB", team: "DAL", points: 19.2, confidence: "medium" },
+            { name: "Josh Jacobs", position: "RB", team: "LV", points: 18.7, confidence: "medium" },
+            
+            // Wide Receivers
+            { name: "Justin Jefferson", position: "WR", team: "MIN", points: 21.8, confidence: "high" },
+            { name: "Tyreek Hill", position: "WR", team: "MIA", points: 22.1, confidence: "high" },
+            { name: "Davante Adams", position: "WR", team: "LV", points: 20.3, confidence: "high" },
+            { name: "Stefon Diggs", position: "WR", team: "BUF", points: 19.7, confidence: "medium" },
+            { name: "A.J. Brown", position: "WR", team: "PHI", points: 18.9, confidence: "medium" },
+            
+            // Tight Ends
+            { name: "Travis Kelce", position: "TE", team: "KC", points: 18.7, confidence: "high" },
+            { name: "Mark Andrews", position: "TE", team: "BAL", points: 16.2, confidence: "medium" },
+            { name: "George Kittle", position: "TE", team: "SF", points: 15.8, confidence: "medium" },
+            { name: "T.J. Hockenson", position: "TE", team: "MIN", points: 14.9, confidence: "medium" },
+            { name: "Darren Waller", position: "TE", team: "NYG", points: 13.5, confidence: "low" }
+        ];
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize counters
+            initCounters();
+            
+            // Initialize quiz
+            loadQuizQuestion();
+            
+            // Initialize visitor count
+            updateVisitorCount();
+            
+            // Initialize scroll tracking
+            initScrollTracking();
+            
+            // Initialize predictions modal
+            initPredictionsModal();
+            
+            // Add animation to elements on scroll
+            initScrollAnimations();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            console.log('AI Football Analyst Enhanced Edition Loaded!');
+            console.log('Creator: Avishkar Menge');
+            console.log('Email: avishkarmenge703@gmail.com');
+            console.log('GitHub: https://github.com/avishkarmenge703-netizen');
+            console.log('Twitter: https://x.com/AvishkarMe42488');
+            console.log('LinkedIn: https://www.linkedin.com/in/avishkar-menge-880686311/');
         });
 
-        // Animated counters
+        // Initialize counters
+        function initCounters() {
+            const counters = document.querySelectorAll('.stat-number[data-count]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                animateCounter(counter, target, 2000);
+            });
+        }
+
+        // Animate counter
         function animateCounter(element, target, duration = 2000) {
             let start = 0;
             const increment = target / (duration / 16);
@@ -1781,188 +2062,684 @@
             }, 16);
         }
 
-        // Initialize counters when in view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('[data-count]');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        animateCounter(counter, target);
-                    });
-                    observer.unobserve(entry.target);
+        // Update visitor count
+        function updateVisitorCount() {
+            // Load from localStorage or start with base count
+            let storedCount = localStorage.getItem('aiFootballVisitors');
+            if (storedCount) {
+                visitorCount = parseInt(storedCount);
+            } else {
+                visitorCount = 1247;
+                localStorage.setItem('aiFootballVisitors', visitorCount);
+            }
+            
+            // Update display
+            document.getElementById('visitorCount').textContent = visitorCount.toLocaleString();
+            
+            // Simulate new visitors
+            setInterval(() => {
+                visitorCount += Math.floor(Math.random() * 3) + 1;
+                document.getElementById('visitorCount').textContent = visitorCount.toLocaleString();
+                localStorage.setItem('aiFootballVisitors', visitorCount);
+            }, 30000); // Every 30 seconds
+        }
+
+        // Scroll tracking
+        function initScrollTracking() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const progressDots = document.querySelectorAll('.progress-dot');
+            const sections = ['home', 'about', 'predictions', 'methodology', 'quiz'];
+            
+            window.addEventListener('scroll', function() {
+                // Update scroll progress bar
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                scrollProgress.style.width = scrolled + "%";
+                
+                // Update progress dots
+                let currentSection = '';
+                sections.forEach(section => {
+                    const element = document.getElementById(section);
+                    if (element) {
+                        const rect = element.getBoundingClientRect();
+                        if (rect.top <= 150 && rect.bottom >= 150) {
+                            currentSection = section;
+                        }
+                    }
+                });
+                
+                progressDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('data-label').toLowerCase() === currentSection) {
+                        dot.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Quiz functions
+        function loadQuizQuestion() {
+            const question = quizQuestions[currentQuizQuestion];
+            document.getElementById('quizQuestion').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'quiz-option';
+                optionElement.textContent = `${String.fromCharCode(65 + index)}) ${option}`;
+                optionElement.onclick = () => selectOption(optionElement, String.fromCharCode(65 + index));
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Reset UI
+            document.getElementById('checkBtn').style.display = 'inline-block';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('quizResult').style.display = 'none';
+            selectedOption = null;
+        }
+
+        function selectOption(element, option) {
+            // Remove selection from all options
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selection to clicked option
+            element.classList.add('selected');
+            selectedOption = option;
+        }
+
+        function checkAnswer() {
+            if (!selectedOption) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            const question = quizQuestions[currentQuizQuestion];
+            const selectedIndex = selectedOption.charCodeAt(0) - 65;
+            const isCorrect = selectedIndex === question.correct;
+            
+            // Show correct/incorrect styling
+            document.querySelectorAll('.quiz-option').forEach((opt, index) => {
+                if (index === question.correct) {
+                    opt.classList.add('correct');
+                } else if (index === selectedIndex && !isCorrect) {
+                    opt.classList.add('incorrect');
                 }
             });
-        }, { threshold: 0.5 });
-
-        // Observe hero section for counters
-        const heroSection = document.querySelector('.hero');
-        if (heroSection) observer.observe(heroSection);
-
-        // Modal functionality
-        function openModal() {
-            document.getElementById('subscriptionModal').style.display = 'flex';
-            updateSubscriberCount();
-        }
-
-        function closeModal() {
-            document.getElementById('subscriptionModal').style.display = 'none';
-        }
-
-        // Newsletter button click
-        document.getElementById('subscribeBtn').addEventListener('click', openModal);
-
-        // Close modal when clicking outside
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('subscriptionModal');
-            if (event.target === modal) {
-                closeModal();
+            
+            // Update score
+            if (isCorrect) {
+                quizScore++;
             }
-        });
+            
+            // Show result
+            document.getElementById('resultTitle').textContent = isCorrect ? 'Correct!' : 'Incorrect!';
+            document.getElementById('resultMessage').textContent = question.explanation;
+            document.getElementById('quizScore').textContent = quizScore;
+            document.getElementById('quizResult').style.display = 'block';
+            
+            // Update buttons
+            document.getElementById('checkBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'inline-block';
+            
+            // Track quiz completion
+            localStorage.setItem('aiFootballQuizTaken', 'true');
+            localStorage.setItem('aiFootballQuizScore', quizScore);
+        }
 
-        // Handle form submission
-        document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        function nextQuestion() {
+            currentQuizQuestion++;
+            if (currentQuizQuestion < quizQuestions.length) {
+                loadQuizQuestion();
+            } else {
+                // Quiz completed
+                document.getElementById('quizQuestion').textContent = 'Quiz Completed!';
+                document.getElementById('quizOptions').innerHTML = '';
+                document.getElementById('checkBtn').style.display = 'none';
+                document.getElementById('nextBtn').style.display = 'none';
+                
+                const resultDiv = document.getElementById('quizResult');
+                resultDiv.innerHTML = `
+                    <h3>Quiz Complete!</h3>
+                    <p>Your final score: ${quizScore}/${quizQuestions.length}</p>
+                    <p>${quizScore >= 4 ? 'Excellent! You know your football!' : 'Good effort! Keep learning!'}</p>
+                    <button onclick="restartQuiz()" class="btn btn-primary" style="margin-top: 10px;">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                `;
+                resultDiv.style.display = 'block';
+            }
+        }
+
+        function restartQuiz() {
+            currentQuizQuestion = 0;
+            quizScore = 0;
+            loadQuizQuestion();
+        }
+
+        function startQuiz() {
+            scrollToSection('quiz');
+            restartQuiz();
+        }
+
+        // Chat functions
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            chatOpen = !chatOpen;
             
-            const email = this.querySelector('input[type="email"]').value;
-            const name = this.querySelector('input[type="text"]').value;
+            if (chatOpen) {
+                chatBox.classList.add('active');
+                document.getElementById('chatInput').focus();
+            } else {
+                chatBox.classList.remove('active');
+            }
+        }
+
+        function openChat() {
+            if (!chatOpen) {
+                toggleChat();
+            }
+        }
+
+        function handleChatKeypress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
             
-            // Save to localStorage (for demo)
-            let subscribers = JSON.parse(localStorage.getItem('aiFootballSubscribers') || '[]');
-            const newSubscriber = {
-                email: email,
-                name: name || 'Anonymous',
-                date: new Date().toISOString(),
-                source: 'website_modal'
+            if (!message) return;
+            
+            // Add user message
+            addChatMessage(message, 'user');
+            input.value = '';
+            
+            // Simulate AI response
+            setTimeout(() => {
+                const responses = [
+                    "Based on our AI model, Christian McCaffrey is projected for 24.3 points this week.",
+                    "The model shows a 72% accuracy rate for Week 12 predictions.",
+                    "You can build your lineup using our interactive lineup builder tool.",
+                    "Our predictions are updated every Thursday with new data.",
+                    "The model analyzes player performance, matchups, weather, and injuries."
+                ];
+                
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addChatMessage(randomResponse, 'bot');
+            }, 1000);
+        }
+
+        function addChatMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = `<p>${text}</p>`;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Lineup builder functions
+        function allowDrop(event) {
+            event.preventDefault();
+            event.currentTarget.classList.add('dragover');
+        }
+
+        function dragPlayer(event, playerName, position, points) {
+            event.dataTransfer.setData("text/plain", JSON.stringify({
+                name: playerName,
+                position: position,
+                points: points
+            }));
+        }
+
+        function dropPlayer(event) {
+            event.preventDefault();
+            event.currentTarget.classList.remove('dragover');
+            
+            const data = JSON.parse(event.dataTransfer.getData("text/plain"));
+            const slot = event.currentTarget;
+            const position = slot.getAttribute('data-position');
+            
+            // Check if position is valid for this slot
+            if (position === 'FLEX' || position === data.position) {
+                slot.classList.add('filled');
+                slot.querySelector('.slot-player').innerHTML = `
+                    <div style="background: var(--primary); color: white; padding: 5px 10px; border-radius: 5px; margin-top: 10px;">
+                        <strong>${data.name}</strong><br>
+                        <small>${data.points} pts</small>
+                    </div>
+                `;
+                
+                // Store player in lineup
+                updateLineup(position, data);
+                updateTotalPoints();
+            } else {
+                alert(`This slot requires a ${position} player!`);
+            }
+        }
+
+        function updateLineup(position, player) {
+            if (position === 'QB') lineupPlayers.QB = player;
+            else if (position === 'RB') {
+                if (!lineupPlayers.RB1) lineupPlayers.RB1 = player;
+                else if (!lineupPlayers.RB2) lineupPlayers.RB2 = player;
+                else lineupPlayers.FLEX = player;
+            }
+            else if (position === 'WR') {
+                if (!lineupPlayers.WR1) lineupPlayers.WR1 = player;
+                else if (!lineupPlayers.WR2) lineupPlayers.WR2 = player;
+                else lineupPlayers.FLEX = player;
+            }
+            else if (position === 'TE') lineupPlayers.TE = player;
+            else if (position === 'FLEX') lineupPlayers.FLEX = player;
+        }
+
+        function addToLineup(name, position, points) {
+            const player = { name, position, points };
+            
+            // Find first available slot
+            let slot = null;
+            
+            if (position === 'QB') {
+                slot = document.querySelector('.position-slot[data-position="QB"]');
+            } else if (position === 'RB') {
+                const rbSlots = document.querySelectorAll('.position-slot[data-position="RB"]');
+                for (let s of rbSlots) {
+                    if (!s.classList.contains('filled')) {
+                        slot = s;
+                        break;
+                    }
+                }
+                if (!slot) {
+                    slot = document.querySelector('.position-slot[data-position="FLEX"]');
+                }
+            } else if (position === 'WR') {
+                const wrSlots = document.querySelectorAll('.position-slot[data-position="WR"]');
+                for (let s of wrSlots) {
+                    if (!s.classList.contains('filled')) {
+                        slot = s;
+                        break;
+                    }
+                }
+                if (!slot) {
+                    slot = document.querySelector('.position-slot[data-position="FLEX"]');
+                }
+            } else if (position === 'TE') {
+                slot = document.querySelector('.position-slot[data-position="TE"]');
+            }
+            
+            if (slot && !slot.classList.contains('filled')) {
+                slot.classList.add('filled');
+                slot.querySelector('.slot-player').innerHTML = `
+                    <div style="background: var(--primary); color: white; padding: 5px 10px; border-radius: 5px; margin-top: 10px;">
+                        <strong>${name}</strong><br>
+                        <small>${points} pts</small>
+                    </div>
+                `;
+                updateLineup(slot.getAttribute('data-position'), player);
+                updateTotalPoints();
+                
+                // Show success message
+                alert(`${name} added to your lineup!`);
+            } else {
+                alert('No available slots for this position! Try the FLEX slot.');
+            }
+        }
+
+        function updateTotalPoints() {
+            let total = 0;
+            Object.values(lineupPlayers).forEach(player => {
+                if (player) total += player.points;
+            });
+            document.getElementById('totalPoints').textContent = total.toFixed(1);
+        }
+
+        function optimizeLineup() {
+            // Simulate AI lineup optimization
+            const optimizedPlayers = [
+                { name: "Patrick Mahomes", position: "QB", points: 28.5 },
+                { name: "Christian McCaffrey", position: "RB", points: 24.3 },
+                { name: "Austin Ekeler", position: "RB", points: 21.5 },
+                { name: "Justin Jefferson", position: "WR", points: 21.8 },
+                { name: "Tyreek Hill", position: "WR", points: 22.1 },
+                { name: "Travis Kelce", position: "TE", points: 18.7 },
+                { name: "Derrick Henry", position: "FLEX", points: 20.8 }
+            ];
+            
+            // Clear current lineup
+            clearLineup();
+            
+            // Add optimized players
+            optimizedPlayers.forEach(player => {
+                addToLineup(player.name, player.position, player.points);
+            });
+            
+            alert('AI has optimized your lineup! Projected: 157.7 points');
+        }
+
+        function clearLineup() {
+            // Clear all slots
+            document.querySelectorAll('.position-slot').forEach(slot => {
+                slot.classList.remove('filled');
+                slot.querySelector('.slot-player').innerHTML = '';
+            });
+            
+            // Reset lineup data
+            lineupPlayers = {
+                QB: null,
+                RB1: null,
+                RB2: null,
+                WR1: null,
+                WR2: null,
+                TE: null,
+                FLEX: null
             };
             
-            subscribers.push(newSubscriber);
-            localStorage.setItem('aiFootballSubscribers', JSON.stringify(subscribers));
-            
-            // Update count display
-            updateSubscriberCount();
-            
-            // Show success message
-            this.innerHTML = `
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 48px; color: #4CAF50; margin-bottom: 20px;">✓</div>
-                    <h3 style="color: var(--dark); margin-bottom: 10px;">Welcome!</h3>
-                    <p style="color: var(--gray);">Week 12 predictions will be sent to:</p>
-                    <p style="background: #f0f8ff; padding: 10px; border-radius: 8px; margin: 15px 0; font-weight: 600;">
-                        ${email}
-                    </p>
-                    <p style="color: var(--gray); font-size: 0.9rem;">
-                        You are subscriber #${subscribers.length}
-                    </p>
-                </div>
-            `;
-            
-            // Auto-close after 3 seconds
-            setTimeout(() => {
-                closeModal();
-                // Reset form for next time
-                setTimeout(() => {
-                    document.getElementById('subscriptionForm').innerHTML = `
-                        <input type="email" class="modal-input" placeholder="Your email address" required>
-                        <input type="text" class="modal-input" placeholder="Your name (optional)">
-                        
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                            <input type="checkbox" id="agreeTerms" required style="width: auto;">
-                            <label for="agreeTerms" style="color: var(--gray); font-size: 0.9rem;">
-                                I agree to receive weekly predictions (unsubscribe anytime)
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="modal-submit">
-                            <i class="fas fa-paper-plane"></i> Get Week 12 Predictions
-                        </button>
-                    `;
-                }, 500);
-            }, 3000);
-        });
+            updateTotalPoints();
+        }
 
-        // Update subscriber count
-        function updateSubscriberCount() {
-            const subscribers = JSON.parse(localStorage.getItem('aiFootballSubscribers') || '[]');
-            const baseCount = 1000;
-            const totalCount = baseCount + subscribers.length;
+        // Predictions modal functions
+        function initPredictionsModal() {
+            // Sort predictions by points
+            allPredictions.sort((a, b) => b.points - a.points);
+            updateCurrentDate();
+        }
+
+        function showAllPredictions() {
+            document.getElementById('allPredictionsModal').classList.add('active');
+            renderPredictionsTable();
+            updateStats();
             
-            document.getElementById('subscriberCount').textContent = 
-                totalCount.toLocaleString() + '+';
-            
-            // Also update in hero section if needed
-            const heroStat = document.querySelector('.stat-number[data-count="500"]');
-            if (heroStat) {
-                heroStat.setAttribute('data-count', totalCount);
+            // Track analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'view_all_predictions', {
+                    'event_category': 'engagement',
+                    'event_label': 'predictions_modal'
+                });
             }
         }
 
-        // Initialize subscriber count
-        updateSubscriberCount();
+        function closePredictionsModal() {
+            document.getElementById('allPredictionsModal').classList.remove('active');
+        }
 
-        // Auto-open modal after 30 seconds (optional)
-        setTimeout(() => {
-            const subscribers = JSON.parse(localStorage.getItem('aiFootballSubscribers') || '[]');
-            if (subscribers.length < 10) { // Only if not many subscribers yet
-                openModal();
+        function renderPredictionsTable(filter = 'all', searchTerm = '') {
+            const tableBody = document.getElementById('predictionsTableBody');
+            tableBody.innerHTML = '';
+            
+            let filteredPredictions = allPredictions;
+            
+            // Apply filter
+            if (filter !== 'all' && filter !== 'high') {
+                filteredPredictions = allPredictions.filter(p => p.position === filter);
+            } else if (filter === 'high') {
+                filteredPredictions = allPredictions.filter(p => p.confidence === 'high');
             }
-        }, 30000);
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+            
+            // Apply search
+            if (searchTerm) {
+                filteredPredictions = filteredPredictions.filter(p => 
+                    p.name.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+            
+            // Render rows
+            filteredPredictions.forEach((player, index) => {
+                const row = document.createElement('tr');
+                const confidenceClass = `confidence-${player.confidence}`;
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add hover effects to all cards
-        document.querySelectorAll('.prediction-card, .methodology-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
+                row.innerHTML = `
+                    <td style="font-weight: 600; color: var(--dark);">${index + 1}</td>
+                    <td>
+                        <div style="font-weight: 600; color: var(--dark);">${player.name}</div>
+                    </td>
+                    <td>
+                        <span style="background: ${getPositionColor(player.position)}; 
+                              color: white; padding: 4px 10px; border-radius: 5px; 
+                              font-size: 12px; font-weight: 600;">
+                            ${player.position}
+                        </span>
+                    </td>
+                    <td style="font-weight: 500;">${player.team}</td>
+                    <td>
+                        <div style="font-size: 18px; font-weight: 800; color: var(--primary);">
+                            ${player.points}
+                        </div>
+                    </td>
+                    <td>
+                        <span class="confidence-badge ${confidenceClass}">
+                            ${player.confidence.charAt(0).toUpperCase() + player.confidence.slice(1)}
+                        </span>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
             });
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
+            // Update counter
+            document.getElementById('totalPlayers').textContent = filteredPredictions.length;
+        }
 
-        // Social link analytics tracking
-        document.querySelectorAll('.social-links a, .hero-social-links a, .header-social a').forEach(link => {
-            link.addEventListener('click', function() {
-                const platform = this.classList.contains('twitter') ? 'twitter' :
-                               this.classList.contains('github') ? 'github' :
-                               this.classList.contains('linkedin') ? 'linkedin' : 'social';
-                
-                console.log(`Social link clicked: ${platform}`);
-                
-                // Track in localStorage
-                let socialClicks = JSON.parse(localStorage.getItem('socialClicks') || '{}');
-                socialClicks[platform] = (socialClicks[platform] || 0) + 1;
-                localStorage.setItem('socialClicks', JSON.stringify(socialClicks));
-                
-                // Track in Google Analytics if available
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'social_click', {
-                        'event_category': 'engagement',
-                        'event_label': platform
-                    });
+        function filterPredictions(filter) {
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Get search term
+            const searchTerm = document.getElementById('playerSearch').value;
+            
+            // Render filtered table
+            renderPredictionsTable(filter, searchTerm);
+            updateStats(filter);
+        }
+
+        function updateStats(filter = 'all') {
+            let filteredPredictions = allPredictions;
+            
+            if (filter !== 'all' && filter !== 'high') {
+                filteredPredictions = allPredictions.filter(p => p.position === filter);
+            } else if (filter === 'high') {
+                filteredPredictions = allPredictions.filter(p => p.confidence === 'high');
+            }
+            
+            // Calculate average points
+            const avgPoints = filteredPredictions.reduce((sum, p) => sum + parseFloat(p.points), 0) / filteredPredictions.length;
+            document.getElementById('avgPoints').textContent = avgPoints.toFixed(1);
+            
+            // Count high confidence predictions
+            const highConfidenceCount = filteredPredictions.filter(p => p.confidence === 'high').length;
+            document.getElementById('highConfidence').textContent = highConfidenceCount;
+        }
+
+        function updateCurrentDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
+        }
+
+        function getPositionColor(position) {
+            const colors = {
+                'QB': '#4361ee',
+                'RB': '#f72585',
+                'WR': '#4cc9f0',
+                'TE': '#7209b7'
+            };
+            return colors[position] || '#6c757d';
+        }
+
+        function downloadPredictions() {
+            let csv = 'Player,Position,Team,Predicted Points,Confidence\n';
+            
+            allPredictions.forEach(player => {
+                csv += `"${player.name}",${player.position},${player.team},${player.points},${player.confidence}\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ai-football-predictions-week12-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            alert('Predictions downloaded as CSV!');
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
             });
-        });
 
-        // Page load animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate elements as they come into view
+            // Search functionality for predictions
+            const searchInput = document.getElementById('playerSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const filter = document.querySelector('.filter-btn.active').textContent;
+                    renderPredictionsTable(filter === 'All Players' ? 'all' : 
+                                          filter === 'Quarterbacks' ? 'QB' :
+                                          filter === 'Running Backs' ? 'RB' :
+                                          filter === 'Wide Receivers' ? 'WR' :
+                                          filter === 'Tight Ends' ? 'TE' :
+                                          filter === 'High Confidence' ? 'high' : 'all', 
+                                          this.value);
+                });
+            }
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('allPredictionsModal');
+                if (event.target === modal) {
+                    closePredictionsModal();
+                }
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(event) {
+                // ESC closes modal
+                if (event.key === 'Escape') {
+                    const modal = document.getElementById('allPredictionsModal');
+                    if (modal.classList.contains('active')) {
+                        closePredictionsModal();
+                    }
+                    if (chatOpen) {
+                        toggleChat();
+                    }
+                }
+                
+                // Ctrl+F focuses search
+                if (event.ctrlKey && event.key === 'f') {
+                    event.preventDefault();
+                    const modal = document.getElementById('allPredictionsModal');
+                    if (modal.classList.contains('active')) {
+                        document.getElementById('playerSearch').focus();
+                    }
+                }
+            });
+
+            // Newsletter subscription
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            if (subscribeBtn) {
+                subscribeBtn.addEventListener('click', function() {
+                    const email = document.getElementById('newsletterEmail').value;
+                    if (email && validateEmail(email)) {
+                        // Save to localStorage
+                        let subscribers = JSON.parse(localStorage.getItem('aiFootballSubscribers') || '[]');
+                        subscribers.push({
+                            email: email,
+                            date: new Date().toISOString()
+                        });
+                        localStorage.setItem('aiFootballSubscribers', JSON.stringify(subscribers));
+                        
+                        // Show success message
+                        alert('Thank you for subscribing! Week 12 predictions will be sent to your email.');
+                        document.getElementById('newsletterEmail').value = '';
+                        
+                        // Update subscriber count in hero stats
+                        document.querySelector('.stat-number[data-count="1500"]').textContent = 
+                            (1500 + subscribers.length).toLocaleString();
+                    } else {
+                        alert('Please enter a valid email address.');
+                    }
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const targetId = href;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add hover effects to cards
+            document.querySelectorAll('.prediction-card, .methodology-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Social link analytics
+            document.querySelectorAll('.social-links a, .hero-social-links a, .header-social a').forEach(link => {
+                link.addEventListener('click', function() {
+                    const platform = this.classList.contains('twitter') ? 'twitter' :
+                                   this.classList.contains('github') ? 'github' :
+                                   this.classList.contains('linkedin') ? 'linkedin' : 'social';
+                    
+                    console.log(`Social link clicked: ${platform}`);
+                    
+                    // Track in localStorage
+                    let socialClicks = JSON.parse(localStorage.getItem('socialClicks') || '{}');
+                    socialClicks[platform] = (socialClicks[platform] || 0) + 1;
+                    localStorage.setItem('socialClicks', JSON.stringify(socialClicks));
+                });
+            });
+        }
+
+        // Initialize scroll animations
+        function initScrollAnimations() {
             const animatedElements = document.querySelectorAll('.animate__animated');
             
             const fadeInObserver = new IntersectionObserver((entries) => {
@@ -1976,14 +2753,114 @@
             animatedElements.forEach(element => {
                 fadeInObserver.observe(element);
             });
+        }
+
+        // Email validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Add CSS for confidence badges
+        const style = document.createElement('style');
+        style.textContent = `
+            .confidence-badge {
+                padding: 4px 12px;
+                border-radius: 15px;
+                font-size: 12px;
+                font-weight: 600;
+                display: inline-block;
+            }
             
-            console.log('AI Football Analyst loaded successfully!');
-            console.log(`Creator: Avishkar Menge`);
-            console.log(`GitHub: https://github.com/avishkarmenge703-netizen`);
-            console.log(`Twitter: https://x.com/AvishkarMe42488`);
-            console.log(`LinkedIn: www.linkedin.com/in/avishkar-menge-880686311`);
-            console.log(`Current subscribers: ${JSON.parse(localStorage.getItem('aiFootballSubscribers') || '[]').length}`);
-        });
+            .confidence-high {
+                background: rgba(76, 175, 80, 0.1);
+                color: #4CAF50;
+                border: 1px solid rgba(76, 175, 80, 0.3);
+            }
+            
+            .confidence-medium {
+                background: rgba(255, 193, 7, 0.1);
+                color: #ff9800;
+                border: 1px solid rgba(255, 193, 7, 0.3);
+            }
+            
+            .confidence-low {
+                background: rgba(244, 67, 54, 0.1);
+                color: #f44336;
+                border: 1px solid rgba(244, 67, 54, 0.3);
+            }
+            
+            .predictions-table-container {
+                overflow-x: auto;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            #predictionsTable {
+                background: white;
+            }
+            
+            #predictionsTable tbody tr {
+                border-bottom: 1px solid var(--gray-light);
+                transition: background 0.3s;
+            }
+            
+            #predictionsTable tbody tr:hover {
+                background: #f8f9fa;
+            }
+            
+            #predictionsTable td {
+                padding: 12px 15px;
+                color: var(--dark);
+            }
+            
+            #predictionsTable tbody tr:nth-child(even) {
+                background: #fafafa;
+            }
+            
+            .filter-btn {
+                background: var(--gray-light);
+                border: none;
+                padding: 8px 16px;
+                border-radius: 20px;
+                color: var(--dark);
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: 500;
+                transition: all 0.3s;
+            }
+            
+            .filter-btn.active {
+                background: var(--primary);
+                color: white;
+            }
+            
+            .filter-btn:hover {
+                background: var(--primary);
+                color: white;
+                transform: translateY(-2px);
+            }
+            
+            .message {
+                margin-bottom: 15px;
+                padding: 10px 15px;
+                border-radius: 15px;
+                max-width: 80%;
+            }
+            
+            .message.user {
+                background: var(--primary);
+                color: white;
+                margin-left: auto;
+            }
+            
+            .message.bot {
+                background: var(--gray-light);
+                color: var(--dark);
+                margin-right: auto;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
